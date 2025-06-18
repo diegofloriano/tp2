@@ -80,13 +80,13 @@ const conta2 = ContaFactory.criarConta('cliente', 'Maria', 'maria@cliente.com', 
 //const conta3 = ContaFactory.criarConta('cliente', 'JOta', 'Jotaa@cliente.com');
 
 // Proxy para ContaAdmin
-const proxyAdmin = new ValidacaoUsuarioProxy(contaAdmin);
+const proxyAdmin = new ValidacaoUsuarioProxy(conta1);
 console.log("\nTentativa de acesso para ContaAdmin:");
 proxyAdmin.acessarSistema("admin", "1234"); // Credenciais válidas
 proxyAdmin.acessarSistema("admin", "senhaErrada"); // Credenciais inválidas
 
 // Proxy para ContaUsuarioComum
-const proxyUsuarioComum = new ValidacaoUsuarioProxy(contaCliente);
+const proxyCliente = new ValidacaoUsuarioProxy(conta2);
 console.log("\nTentativa de acesso para ContaUsuarioComum:");
 proxyCliente.acessarSistema("usuario", "senha123"); // Credenciais válidas
 proxyCliente.acessarSistema("usuario", "senhaErrada"); // Credenciais inválidas
